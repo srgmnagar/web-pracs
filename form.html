@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label>username: </label>
+      <input type="text" id="username" />
+      <span id="uerr"></span>
+
+      <!-- <label>email: </label>
+      <input type="text" id="email" />
+      <span id="merr"></span>
+
+      <label>pass: </label>
+      <input type="password" id="pass" />
+      <span id="perr"></span>
+
+      <label>confirm pass: </label>
+      <input type="password" id="cpass" />
+      <span id="cerr"></span> -->
+
+      <label >gender</label>
+      <div>
+        <input type="radio" name="gender" id="male" value="male" />male
+        <input type="radio" name="gender" id="female" value="female" />female
+      </div>
+
+      <label >hobbies</label>
+      <div>
+        <input type="checkbox" name="hobbies" id="reading" value="reading" />reading
+        <input type="checkbox" name="hobbies" id="writing" value="writing" />writing
+        <input type="checkbox" name="hobbies" id="coding" value="coding" />coding
+      </div>
+
+      <label >courses</label>
+      <select name="courses" >
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>    
+        <option value="js">JavaScript</option>
+        <option value="react">React</option>
+      </select>
+
+      <input type="submit" name="submit" id="submit" />
+    </form>
+    <script>
+      let username = document.getElementById("username");
+      let pass = document.getElementById("pass");
+      let cpass = document.getElementById("cpass");
+      let uerr = document.getElementById("uerr");
+      let perr = document.getElementById("perr");
+      let cerr = document.getElementById("cerr");
+      let submit = document.getElementById("submit");
+      let email=document.getElementById("email");
+      let merr=document.getElementById("merr");
+      let gender=document.querySelector('input[name="gender"]:checked');
+      let hobbies=document.querySelector('input[name="hobbies"]:checked');
+      let courses=document.querySelector('select[name="courses"]').value;
+      submit.addEventListener("click", (e) => {
+        e.preventDefault();
+        let valid = true;
+        uerr.innerText = "";
+        perr.innerText = "";
+        cerr.innerText = "";
+        merr.innerText="";
+        if (username.value.length < 6) {
+          valid = false;
+          uerr.innerText = "username must be at least 6 characters";
+        }
+        if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)==false){
+          valid=false;
+          merr.innerText="invalid email format";
+        }
+        if (pass.value.length < 6) {
+          valid = false;
+          perr.innerText = "password must be at least 6 characters";
+        }
+        if (cpass.value.length < 6) {
+          valid = false;
+          cerr.innerText = "confirm password must be at least 6 characters";
+        }
+        if (pass.value != cpass.value) {
+          valid = false;
+          cerr.innerText = "password and confirm password must be the same";
+        }
+
+        if (valid) {
+          alert("form submitted");
+          username.value = "";
+          pass.value = "";
+          cpass.value = "";
+          uerr.innerText = "";
+          perr.innerText = "";
+          cerr.innerText = "";
+        }
+      });
+    </script>
+  </body>
+</html>

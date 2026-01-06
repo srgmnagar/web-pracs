@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Menu</title>
+    <style>
+        /* Reset */
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        nav ul {
+            background-color: #333;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        /* Dropdown */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            min-width: 150px;
+        }
+
+        nav ul li ul li a {
+            padding: 12px;
+        }
+
+        /* Show dropdown on hover */
+        nav ul li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+
+        <li>
+            <a href="#">Services</a>
+            <ul>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Development</a></li>
+                <li><a href="#">SEO</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>
